@@ -1,0 +1,16 @@
+.classes{
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border-width: 1px;
+    border-style: solid;
+    color: solid black;
+    font-family: serif;
+    font-size: 25px;
+    width: 200px;
+    height: 200px;
+}
+
+
+.classheader{
+    text-align: center;
+}

@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="row" style="margin-bottom: 10px;"> 
+            <div class="col-md-12">
+                <button class="btn btn-primary float-md-right">+ Create</button>
+            </div>
+    </div>
+    <div class="row">
+        <h4>Previous Classes</h4>
+    </div>
+    <div class="row">
+        
+        <div class="col-md12 classes" *ngFor="let i of sample" (click)="checking(i)">
+                <p class="classheader">Sample Class</p>
+        </div>
+    </div>
+
+</div>
