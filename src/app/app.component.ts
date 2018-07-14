@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
     title = 'app works!';
 
-    props = {'menuactions':'',isCreateComponent:true,isViewComponent:false,isMarketComponent:false};
+    props = {'menuactions':'',isCreateComponent:true,isViewComponent:false,isMarketComponent:false,'isMaterialSidedNeeded':'col-md-10'};
 
     menuActions($event){
         console.log("Event Data:"+JSON.stringify($event));
@@ -18,10 +18,12 @@ export class AppComponent {
             this.props.isViewComponent = false;
             this.props.isMarketComponent = false;
             this.props.isCreateComponent = true;
+            this.props.isMaterialSidedNeeded = 'col-md-10';
         }else if(menuEvent.menuselected == 'view'){
             this.props.isViewComponent = true;
             this.props.isMarketComponent = false;
             this.props.isCreateComponent = false;
+            this.props.isMaterialSidedNeeded = 'col-md-6';
         }
     }
 

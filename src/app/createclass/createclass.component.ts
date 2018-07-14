@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Response } from '@angular/http'; 
 
 @Component({
   selector: 'app-createclass',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateclassComponent implements OnInit {
 
-    props = {};
+    props = {'isCreated':false,'isLoadingScreen':false};
     sample = [0,1,2,3,4];
   constructor() { }
 
@@ -15,7 +17,28 @@ export class CreateclassComponent implements OnInit {
   }
 
     
-    checking(i){
+    onClickClass(i){
         console.log("working"+i);
     }
+    
+    
+    onCreateClass(){
+        this.props.isCreated = true;
+    }
+    
+    createClass(){
+        this.showLoadingScreen();
+        this.props.isCreated = false;
+        this.dismissLoadingScreen();
+    }
+    
+    showLoadingScreen(){
+        this.props.isLoadingScreen = true;
+    }
+    
+    dismissLoadingScreen(){
+        this.props.isLoadingScreen = false;
+    }
+    
+    
 }

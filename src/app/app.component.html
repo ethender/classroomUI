@@ -4,14 +4,14 @@
         <div class="col-md-2 menu">
             <app-menu (messageEvent)="menuActions($event)"></app-menu>
         </div>
-        <div class="col-md-6 border mainconsole" >
+        <div class="{{props.isMaterialSidedNeeded}} border mainconsole" >
             
             <app-createclass *ngIf="props.isCreateComponent"></app-createclass> 
             <app-viewclasses *ngIf="props.isViewComponent"></app-viewclasses>
             <app-market *ngIf="props.isMarketComponent"></app-market>
         </div>
 
-        <div class="col-md-4 material">
+        <div *ngIf="props.isViewComponent" class="col-md-4 material">
             <p>Material Section</p>
         </div>
     </div>

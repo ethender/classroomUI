@@ -1,21 +1,71 @@
 
+<div *ngIf="props.isLoadingScreen" class="col-md-12 loading">
+    <img src="../../assets/loading.gif">
+</div>
+
+
+
 <!-- Classes -->
-<div class="container">
+<div *ngIf="!props.isCreated" class="container-fluid">
     <div class="row" style="margin-bottom: 10px;"> 
-            <div class="col-md-12">
-                <button class="btn btn-primary float-md-right">+ Create</button>
-            </div>
+        <div class="col-md-12">
+            <button class="btn btn-primary float-md-right" (click)="onCreateClass()">+ Create</button>
+        </div>
     </div>
     <div class="row">
         <h4>Previous Classes</h4>
     </div>
     <div class="row">
-        
-        <div class="col-md12 classes" *ngFor="let i of sample" (click)="checking(i)">
-                <p class="classheader">Sample Class</p>
-                <p class="descriptor">Description</p>
-                <p class="createddate">Created Date</p>
+
+        <div class="col-md12 classes" *ngFor="let i of sample" (click)="onClickClass(i)">
+            <p class="classheader">Sample Class</p>
+            <p class="descriptor">Description</p>
+            <p class="createddate">Created Date</p>
         </div>
     </div>
 
+</div>
+
+
+
+
+<!-- class create -->
+<div *ngIf="props.isCreated" class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <h4>Create Class</h4>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <form method="post" (ngSubmit)="createClass(classes)" #classes="ngForm">
+                <div class="form-group ">
+                    <label class="control-label requiredField" for="classname">
+                        Class Name
+                        <span class="asteriskField">
+                            *
+                        </span>
+                    </label>
+                    <input class="form-control" ngModel id="classname" name="classname" placeholder="Name of the class" type="text"/>
+                </div>
+                <div class="form-group ">
+                    <label class="control-label requiredField" for="instructor">
+                        Instructor Name
+                        <span class="asteriskField">
+                            *
+                        </span>
+                    </label>
+                    <input class="form-control" id="instructor" name="instructor" placeholder="Your Name" ngModel type="text"/>
+                </div>
+                <div class="form-group">
+                    <div>
+                        <button class="btn btn-primary " name="submit" type="submit">
+                            Submit
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
