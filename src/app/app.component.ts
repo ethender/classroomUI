@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
     title = 'app works!';
 
-    props = {'menuactions':'',isCreateComponent:true,isViewComponent:false,isMarketComponent:false,'isMaterialSidedNeeded':'col-md-10'};
+    props = {'menuactions':'',isCreateComponent:true,isViewComponent:false,isMarketComponent:false,'isMaterialSidedNeeded':'col-md-10','isUserEntered':false};
 
     menuActions($event){
         console.log("Event Data:"+JSON.stringify($event));

@@ -1,19 +1,19 @@
 
-<div *ngIf="props.isLoadingScreen" class="col-md-12 loading">
+<div *ngIf="screens.loadingScreen" class="col-md-12 loading">
     <img src="../../assets/loading.gif">
 </div>
 
 
 
-<!-- Classes -->
-<div *ngIf="!props.isCreated" class="container-fluid">
+<!-- Classes view-->
+<div *ngIf="screens.viewclasses" class="container-fluid">
     <div class="row" style="margin-bottom: 10px;"> 
         <div class="col-md-12">
             <button class="btn btn-primary float-md-right" (click)="onCreateClass()">+ Create</button>
         </div>
     </div>
     <div class="row">
-        <h4>Previous Classes</h4>
+        <h4>Classes</h4>
     </div>
     <div class="row">
 
@@ -30,7 +30,7 @@
 
 
 <!-- class create -->
-<div *ngIf="props.isCreated" class="container-fluid">
+<div *ngIf="screens.classcreate" class="container-fluid">
     <div class="row">
         <div class="col-md-12">
             <h4>Create Class</h4>
@@ -39,7 +39,7 @@
     <div class="row">
 
         <div class="col-md-6 col-sm-6 col-xs-12">
-            <form method="post" (ngSubmit)="createClass(classes)" #classes="ngForm">
+            <form (ngSubmit)="createClass(classes)" #classes="ngForm">
                 <div class="form-group ">
                     <label class="control-label requiredField" for="classname">
                         Class Name
@@ -48,15 +48,6 @@
                         </span>
                     </label>
                     <input class="form-control" ngModel id="classname" name="classname" placeholder="Name of the class" type="text"/>
-                </div>
-                <div class="form-group ">
-                    <label class="control-label requiredField" for="instructor">
-                        Instructor Name
-                        <span class="asteriskField">
-                            *
-                        </span>
-                    </label>
-                    <input class="form-control" id="instructor" name="instructor" placeholder="Your Name" ngModel type="text"/>
                 </div>
                 <div class="form-group">
                     <div>
@@ -69,3 +60,156 @@
         </div>
     </div>
 </div>
+
+
+
+
+<!-- Lectures view -->
+
+
+<!-- Classes -->
+<div *ngIf="screens.lecturesview" class="container-fluid">
+    <div class="row" style="margin-bottom: 10px;"> 
+        <div class="col-md-12">
+            <button class="btn btn-primary float-md-right" (click)="onCreateLecture()">+ Create</button>
+        </div>
+    </div>
+    <div class="row">
+        <h4>Lectures</h4>
+    </div>
+    <div class="row">
+
+        <div class="col-md12 classes" *ngFor="let i of sample" (click)="onClickLecture(i)">
+            <p class="classheader">Sample Lectures</p>
+            <p class="descriptor">Description</p>
+            <p class="createddate">Created Date</p>
+        </div>
+    </div>
+</div>
+
+
+<!-- Lectures Create -->
+<div  *ngIf="screens.lecturescreate" class="container-fluid">
+    <div class="row">
+        <h4>Create Lecture</h4>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <form (ngSubmit)="submitLecture(lecture)" #lecture="ngForm">
+                <div class="form-group ">
+                    <label class="control-label requiredField" for="lecture">
+                        Lecture Name
+                        <span class="asteriskField">
+                            *
+                        </span>
+                    </label>
+                    <input class="form-control" id="lecture" ngModel name="lecture" placeholder="Lecture " type="text"/>
+                </div>
+                <div class="form-group ">
+                    <label class="control-label " for="desc">
+                        Description
+                    </label>
+                    <textarea class="form-control" cols="40" ngModel id="desc" name="desc" placeholder="Desc" rows="10"></textarea>
+                </div>
+                <div class="form-group">
+                    <div>
+                        <button class="btn btn-primary " name="submit" type="submit">
+                            Submit
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Lecture View -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-10">
+            <h4>Lecture About</h4>
+        </div>
+        <div class="col-md-2">
+            <label>Create: </label>
+            <select>
+                <option selected disabled hidden>Create</option>
+                <option value="video">Video</option>
+                <option value="material">Material</option>
+                <option value="project">Projects</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-9">
+            <div class="row">
+                <label><strong>Videos</strong></label>
+            </div>
+            <div class="row sections">
+                <div class="col-md-1">
+                    <button>Back</button>
+                </div>
+                <div  class="col-md-3">
+                    <img class="imgs"  src="../../assets/steve.jpg">
+                </div>
+                <div class="col-md-3">
+                    <img class="imgs"  src="../../assets/steve2.jpeg">
+                </div>
+                <div class="col-md-3">
+                    <img class="imgs" src="../../assets/steve3.jpg">
+                </div>
+                <div class="col-md-1 ">
+                    <button>Next</button>
+                </div>
+            </div>
+            <div class="row">
+                <label><strong>Materials</strong></label>
+            </div>
+            <div class="row sections">
+                <div class="col-md-1 ">
+                    <button>Back</button>
+                </div>
+                <div  class="col-md-3">
+                    <img class="imgs"  src="../../assets/steve.jpg">
+                </div>
+                <div class="col-md-3">
+                    <img class="imgs"  src="../../assets/steve2.jpeg">
+                </div>
+                <div class="col-md-3">
+                    <img class="imgs" src="../../assets/steve3.jpg">
+                </div>
+                <div class="col-md-1 ">
+                    <button>Next</button>
+                </div>
+            </div>
+            <div class="row">
+                <label><strong>Project</strong></label>
+            </div>
+            <div class="row sections">
+                <div class="col-md-1 ">
+                    <button>Back</button>
+                </div>
+                <div  class="col-md-3">
+                    <img class="imgs"  src="../../assets/steve.jpg">
+                </div>
+                <div class="col-md-3">
+                    <img class="imgs"  src="../../assets/steve2.jpeg">
+                </div>
+                <div class="col-md-3">
+                    <img class="imgs" src="../../assets/steve3.jpg">
+                </div>
+                <div class="col-md-1 ">
+                    <button>Next</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+
+            <label>Tasks Section</label>
+        </div>
+    </div>
+</div>
+
+
+

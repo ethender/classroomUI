@@ -42,3 +42,27 @@
     opacity: .5; /* in FireFox */ 
     filter: alpha(opacity=50);
 }
+
+.lecturebordered{
+    border-width: 1px;
+    border-style: solid;
+    color: solid black;
+    margin-bottom: 10px;
+}
+
+.uploadedlectures{
+    overflow-x:auto; 
+}
+
+
+.imgs{
+    width: 100%;
+    height: 100%;
+}
+
+
+
+.sections{
+    padding-bottom: 10px;
+    border-bottom: solid black 1px;
+}

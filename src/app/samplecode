@@ -1,0 +1,25 @@
+<h1>
+  {{title}}
+</h1>
+
+
+<nav class="navbar navbar-expand-sm  bg-dark navbar-dark">
+    <a class="navbar-brand" href="#">NavBar</a>
+</nav>
+<!--
+
+Own Sample Video
+<video controls preload="auto" width="300" height="300">
+    <!--
+    <source src="../assets/sample.mp4" type='video/mp4'> 
+    
+    <source src="https://youtu.be/6v2L2UGZJAM" type="video/youtube">
+</video>
+-->
+
+<!--
+
+Youtube Sample
+<iframe width="560" height="315" src="https://www.youtube.com/embed/6v2L2UGZJAM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+-->
+
