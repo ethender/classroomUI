@@ -10,7 +10,8 @@ import { Response } from '@angular/http';
 export class CreateclassComponent implements OnInit {
 
     loadingScreen = false;
-    screens = {"viewclasses":true,"classcreate":false,"lecturesview":false,'lecturescreate':false};
+    tasks = {'create':false};
+    screens = {"viewclasses":true,"classcreate":false,"lecturesview":false,'lecturescreate':false,'lectureview':false,'uploadview':false};
 
     sample = [0,1,2,3,4];
     constructor() { }
@@ -63,14 +64,14 @@ export class CreateclassComponent implements OnInit {
 
 
     /*
-    *  Lecture Code
+    *  Lectures Code
     */
 
 
     onClickLecture(i){
         console.log("working"+i);
         this.showLoadingScreen();
-        this.showScreen('lecturesview');
+        this.showScreen('lectureview');
         this.dismissLoadingScreen();
     }
 
@@ -87,6 +88,23 @@ export class CreateclassComponent implements OnInit {
         this.showScreen('lecturesview');
         this.dismissLoadingScreen();
     }
+    
+    createTask(){
+        console.log("@@@ Inside create task");
+        this.tasks.create = true;
+        
+    }
+    
+    submitTask(){
+        console.log("@@@ Submit the task")
+        this.tasks.create = false;
+    }
+    
+    
+    
+    /*
+    * Lecture code
+    */
 
 
 

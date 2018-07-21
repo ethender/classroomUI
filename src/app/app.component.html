@@ -1,6 +1,6 @@
 <div *ngIf="props.isUserEntered" class="col-md-12 loading">
     <div class="centers" >
-        <label>Username</label>: <input type="text" name=""> <input type="button" value="submit">
+        <label>Username</label>: <input type="text" [(ngModel)]="props.username" name=""> <input type="button" (click)="storeUsername()"  class="btn btn-primary" value="submit">
     </div>
 </div>
 

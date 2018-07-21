@@ -126,7 +126,7 @@
 
 
 <!-- Lecture View -->
-<div class="container-fluid">
+<div *ngIf="screens.lectureview" class="container-fluid">
     <div class="row">
         <div class="col-md-10">
             <h4>Lecture About</h4>
@@ -146,9 +146,9 @@
             <div class="row">
                 <label><strong>Videos</strong></label>
             </div>
-            <div class="row sections">
+            <div class="row sections ">
                 <div class="col-md-1">
-                    <button>Back</button>
+                    <button class="btn btn-primary direction">Back</button>
                 </div>
                 <div  class="col-md-3">
                     <img class="imgs"  src="../../assets/steve.jpg">
@@ -160,15 +160,15 @@
                     <img class="imgs" src="../../assets/steve3.jpg">
                 </div>
                 <div class="col-md-1 ">
-                    <button>Next</button>
+                    <button class="btn btn-primary direction">Next</button>
                 </div>
             </div>
             <div class="row">
                 <label><strong>Materials</strong></label>
             </div>
-            <div class="row sections">
+            <div class="row sections ">
                 <div class="col-md-1 ">
-                    <button>Back</button>
+                    <button class="btn btn-primary direction">Back</button>
                 </div>
                 <div  class="col-md-3">
                     <img class="imgs"  src="../../assets/steve.jpg">
@@ -180,7 +180,7 @@
                     <img class="imgs" src="../../assets/steve3.jpg">
                 </div>
                 <div class="col-md-1 ">
-                    <button>Next</button>
+                    <button class="btn btn-primary direction">Next</button>
                 </div>
             </div>
             <div class="row">
@@ -188,7 +188,7 @@
             </div>
             <div class="row sections">
                 <div class="col-md-1 ">
-                    <button>Back</button>
+                    <button class="btn btn-primary direction">Back</button>
                 </div>
                 <div  class="col-md-3">
                     <img class="imgs"  src="../../assets/steve.jpg">
@@ -200,14 +200,94 @@
                     <img class="imgs" src="../../assets/steve3.jpg">
                 </div>
                 <div class="col-md-1 ">
-                    <button>Next</button>
+                    <button class="btn btn-primary direction">Next</button>
                 </div>
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-3 sectionstask">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 >Tasks</h5>
+                </div>
+                <div class="col-md-6">
+                    <button  style="margin-right: 0%;" (click)="createTask()" class="btn btn-primary">+</button>
+                </div>
+            </div>
 
-            <label>Tasks Section</label>
+            <div *ngIf="tasks.create"  class="container-fluid">
+                <div style="padding-left: 20px;" class="row">
+                    <form (ngSubmit)="submitTask(task)"  #task="ngForm">
+                        <div class="form-group ">
+                            <label class="control-label requiredField" for="task">
+                                Task
+                                <span class="asteriskField">
+                                    *
+                                </span>
+                            </label>
+                            <input class="form-control" id="task" ngModel name="task" placeholder="task" type="text"/>
+                        </div>
+                        <div class="form-group">
+                            <div>
+                                <button class="btn btn-primary " name="submit" type="submit">
+                                    Submit
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div  class="container-fluid">
+                <div  style="padding-left: 20px;" *ngFor="let i of sample" class="row">
+                    <label  class="checkbox-inline"><input type="checkbox" value=""> Task {{i}}</label>
+                </div>
+            </div>
+
+
+
         </div>
+    </div>
+</div>
+
+
+
+<!-- upload section -->
+<div *ngIf="screens.uploadview" class="conatiner-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <h4>Upload</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <form method="post">
+                <div class="form-group ">
+                    <label class="control-label requiredField" for="files">
+                        File Upload
+                        <span class="asteriskField">
+                            *
+                        </span>
+                    </label>
+                    <input class="form-control" id="files" name="files" placeholder="File Upload" type="file"/>
+                </div>
+                <div class="form-group ">
+                    <label class="control-label requiredField" for="referencelink">
+                        Reference
+                        <span class="asteriskField">
+                            *
+                        </span>
+                    </label>
+                    <input class="form-control" id="referencelink" name="referencelink" placeholder="reference link" type="text"/>
+                </div>
+                <div class="form-group">
+                    <div>
+                        <button class="btn btn-primary " name="submit" type="submit">
+                            Submit
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>    
     </div>
 </div>
 
