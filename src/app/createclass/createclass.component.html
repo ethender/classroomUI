@@ -3,7 +3,9 @@
     <img src="../../assets/loading.gif">
 </div>
 
-
+<div *ngIf="alertScreen">
+    <label><strong>{{props.msg}}</strong></label>
+</div>
 
 <!-- Classes view-->
 <div *ngIf="screens.viewclasses" class="container-fluid">

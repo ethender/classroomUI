@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
   selector: 'app-menu',
@@ -10,12 +10,15 @@ export class MenuComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+      console.log("@@@ Menu :"+localStorage.getItem('user'));
+     //this.props.user  = localStorage.getItem('user');
   }
 
     
     @Output() messageEvent =  new EventEmitter<String>();
     
     props  = {'menuselected':''};
+    @Input() user:  string;
     
     sendMessageToCreateClass(){
         console.log('Comming to create class');

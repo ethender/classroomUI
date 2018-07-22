@@ -1,5 +1,6 @@
 <div *ngIf="props.isUserEntered" class="col-md-12 loading">
     <div class="centers" >
+        <label>{{sample}}</label>
         <label>Username</label>: <input type="text" [(ngModel)]="props.username" name=""> <input type="button" (click)="storeUsername()"  class="btn btn-primary" value="submit">
     </div>
 </div>
@@ -12,7 +13,7 @@
     <div class="row">
 
         <div class="col-md-2 menu">
-            <app-menu (messageEvent)="menuActions($event)"></app-menu>
+            <app-menu [user]="user" (messageEvent)="menuActions($event)"></app-menu>
         </div>
         <div class="{{props.isMaterialSidedNeeded}} border mainconsole" >
             

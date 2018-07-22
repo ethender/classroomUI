@@ -9,6 +9,11 @@ import { CreateclassComponent } from './createclass/createclass.component';
 import { ViewclassesComponent } from './viewclasses/viewclasses.component';
 import { MarketComponent } from './market/market.component';
 
+
+import { CreateClassService } from './createclass/createclass.service';
+
+import {  SimpleTimer } from 'ng2-simple-timer';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +27,10 @@ import { MarketComponent } from './market/market.component';
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [
+      CreateClassService,
+      SimpleTimer
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
