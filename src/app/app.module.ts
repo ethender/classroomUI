@@ -11,7 +11,7 @@ import { MarketComponent } from './market/market.component';
 
 
 import { CreateClassService } from './createclass/createclass.service';
-
+import { AppUtils } from './app.utils';
 import {  SimpleTimer } from 'ng2-simple-timer';
 
 @NgModule({
@@ -29,7 +29,8 @@ import {  SimpleTimer } from 'ng2-simple-timer';
   ],
   providers: [
       CreateClassService,
-      SimpleTimer
+      SimpleTimer,
+      AppUtils
   ],
   bootstrap: [AppComponent]
 })

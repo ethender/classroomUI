@@ -1,5 +1,5 @@
 
-<div *ngIf="screens.loadingScreen" class="col-md-12 loading">
+<div *ngIf="loadingScreen" class="col-md-12 loading">
     <img src="../../assets/loading.gif">
 </div>
 
@@ -17,12 +17,17 @@
     <div class="row">
         <h4>Classes</h4>
     </div>
-    <div class="row">
-
-        <div class="col-md12 classes" *ngFor="let i of sample" (click)="onClickClass(i)">
-            <p class="classheader">Sample Class</p>
-            <p class="descriptor">Description</p>
-            <p class="createddate">Created Date</p>
+    
+    <div class="row" *ngIf="utils.checkIsEmpty(props.classes)">
+        <div class="col-md-12" >
+            <label>No Classes Created Yet?</label>
+        </div>
+    </div>
+    <div class="row" *ngIf="!utils.checkIsEmpty(props.classes)">
+        <div class="col-md12 classes"  *ngFor="let class of props.classes" (click)="onClickClass(class._id)">
+            <p class="classheader">{{class.name}}</p>
+            <p class="descriptor"><label><strong>Enrolled: {{class.enrollers}}</strong></label></p>
+            <p class="createddate"><strong>{{class.dateOfCreate | date: 'dd/MM/yyyy HH:mm:ss' }}</strong></p>
         </div>
     </div>
 
@@ -79,7 +84,10 @@
     <div class="row">
         <h4>Lectures</h4>
     </div>
-    <div class="row">
+    <div *ngIf="utils.checkIsEmpty(props.lectures)" class="row">
+        <label><strong>No Lectures Yet?</strong></label>
+    </div> 
+     <div class="row" *ngIf="!utils.checkIsEmpty(props.lectures)" >
 
         <div class="col-md12 classes" *ngFor="let i of sample" (click)="onClickLecture(i)">
             <p class="classheader">Sample Lectures</p>
@@ -87,6 +95,7 @@
             <p class="createddate">Created Date</p>
         </div>
     </div>
+   
 </div>
 
 

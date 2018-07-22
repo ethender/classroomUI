@@ -20,6 +20,7 @@ export class MenuComponent implements OnInit {
     props  = {'menuselected':''};
     @Input() user:  string;
     
+    
     sendMessageToCreateClass(){
         console.log('Comming to create class');
         this.props.menuselected = 'create';
