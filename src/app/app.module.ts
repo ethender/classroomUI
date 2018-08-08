@@ -13,6 +13,8 @@ import { MarketComponent } from './market/market.component';
 import { CreateClassService } from './createclass/createclass.service';
 import { AppUtils } from './app.utils';
 import {  SimpleTimer } from 'ng2-simple-timer';
+import {FileUploadModule} from 'ng2-file-upload';
+//import { FileSelectDirective } from 'ng2-file-upload';
 
 @NgModule({
   declarations: [
@@ -20,12 +22,15 @@ import {  SimpleTimer } from 'ng2-simple-timer';
     MenuComponent,
     CreateclassComponent,
     ViewclassesComponent,
-    MarketComponent
+    MarketComponent,
+    //FileSelectDirective
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    FileUploadModule
+    
   ],
   providers: [
       CreateClassService,

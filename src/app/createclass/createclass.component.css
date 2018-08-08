@@ -30,6 +30,11 @@
     position: relative;
 }
 
+.views{
+    font-size: 20px;
+    margin-left: 0%;
+    
+}
 
 .loading{
     background-color:#EFEFEF;
